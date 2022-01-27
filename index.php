@@ -1,7 +1,11 @@
 <?php
 session_start();
 $_SESSION['user'] = (isset($_GET['user'])) ? (int)$_GET['user'] : 0;
+require 'core/init.php';
 
+//$chat = new Chat();
+//echo '<pre>',print_r($chat->fetchMessages()),'</pre>';
+//$chat->throwMessage(1,'dsadsadsadsa');
 ?>
 
 <!DOCTYPE html>
