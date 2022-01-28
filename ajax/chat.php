@@ -20,13 +20,16 @@
                 ?>
                     <div class="message">
                         <a href="#"></a><?php echo $message['username']; ?> says:
-                        <p><?php echo $message['message']; ?></p>
+                        <p><?php echo nl2br($message['message']); ?></p>
                     </div>
                 <?php
                 }
             }
-        } else if ($method === 'throw') {
-
+        } else if ($method === 'throw' && isset($_POST['message']) === true) {
+            $message = trim($_POST['message']);
+            if(empty($message) === false){
+                $chat->throwMessage($_SESSION['user'],$message);
+            }
         }
     }
     
